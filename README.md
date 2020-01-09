@@ -3,22 +3,6 @@
 
 This starter kit will run the go server at localhost:4300, and the angular dev server at localhost:4200.
 
-Prequisites:
-- Have Go and node installed
-- Check what your `GOPATH` and `GOROOT` env vars are, using `go env`
-- Set your path:  `PATH=$PATH:$GOPATH/bin:$GOROOT/bin`
-- Clone this repository into your `GOPATH`
-
-```
-- GOPATH
-  - src
-    - github.com
-      - jeantanzj
-        - angular-gingonic
-```
-
-- Have angular cli installed: `npm install -g @angular/cli`
-
 # How to use
 ## With docker and docker-compose
 ### To run the development build locally
@@ -38,6 +22,23 @@ docker run -p "4300:4300" angular-gingonic-prod
 
             
 ## Without docker and docker-compose
+
+Pre-requisites:
+- Have Go and node installed
+- Check what your `GOPATH` and `GOROOT` env vars are, using `go env`
+- Set your path:  `PATH=$PATH:$GOPATH/bin:$GOROOT/bin`
+- Clone this repository into your `GOPATH`
+
+```
+- GOPATH
+  - src
+    - github.com
+      - jeantanzj
+        - angular-gingonic
+```
+
+- Have angular cli installed: `npm install -g @angular/cli`
+
 ### To run the development build locally
 
 Install dependencies
