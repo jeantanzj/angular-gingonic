@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    ports:
+      - '4300:4300'
+      - '4200:4200'
+    volumes:
+      - ./app:/go/src/github.com/jeantanzj/angular-gingonic/app
+      - ./client:/go/src/github.com/jeantanzj/angular-gingonic/client

@@ -1,0 +1,5 @@
+## Dockerfile will not copy these files/folders
+vendor
+**/node_modules
+.git
+tmp

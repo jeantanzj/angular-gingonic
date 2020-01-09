@@ -1,0 +1,33 @@
+FROM golang:1.13
+ENV HOME=/go/src/github.com/jeantanzj/angular-gingonic
+WORKDIR $HOME
+RUN apt-get update
+RUN apt-get install -y git jq curl
+
+# Install node
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+RUN npm install -g @angular/cli concurrently
+
+# Install client deps
+COPY ./client/package.json ./client/package.json
+RUN cd client && npm install
+
+# Install server deps
+COPY ./go.mod .
+RUN go mod download
+
+# Install tool for hot reloading server
+RUN go get github.com/githubnemo/CompileDaemon
+
+# Copy all the files
+COPY . . 
+
+# Client port
+EXPOSE 4200
+
+# Server port
+EXPOSE 4300
+
+# Start the hot reloading client, and server
+CMD npx concurrently "CompileDaemon -directory=\"app\" -build=\"go build -o ../tmp/main main.go\" -command=\"./tmp/main\""  "cd client && ng serve --host 0.0.0.0"
