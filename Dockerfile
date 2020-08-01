@@ -1,5 +1,5 @@
 ######## Part 1: Environment for building the node client
-FROM node:13-alpine as clientBuilder
+FROM node:14-alpine as clientBuilder
 ENV HOME=/go/src/github.com/jeantanzj/angular-gingonic/client
 WORKDIR $HOME
 
@@ -15,7 +15,7 @@ COPY ./client .
 RUN ng build --prod=true
 
 ######## Part 2: Environment for running Go server
-FROM golang:1.13-alpine
+FROM golang:1.14-alpine
 ENV HOME=/go/src/github.com/jeantanzj/angular-gingonic
 WORKDIR $HOME
 

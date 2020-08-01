@@ -1,5 +1,5 @@
 
-# Angular 8 + Gin-gonic starter kit
+# Angular + Gin-gonic starter kit
 
 This starter kit will run the go server at localhost:4300, and the angular dev server at localhost:4200.
 

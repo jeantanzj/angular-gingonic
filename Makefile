@@ -10,7 +10,7 @@ client-start:
 server-install:
 	go get -u github.com/githubnemo/CompileDaemon && go mod download
 server-start:
-	CompileDaemon -directory="app" -build="go build -o ../tmp/app ./" -command="/tmp/app"
+	CompileDaemon -directory="app" -build="go build -o ../tmp/app ./" -command="./tmp/app"
 start:
 	cd client && ng build --prod=true && cd .. && export GIN_MODE=release && go build -o /tmp/app ./app/ && /tmp/app
 lint:
